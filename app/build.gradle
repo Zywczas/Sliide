@@ -74,16 +74,16 @@ dependencies {
 
     implementation lifeCycleDependencies.liveData
 
-    implementation testDependencies.junit
-    implementation testDependencies.espressoCore
-    implementation testDependencies.mockito
-    implementation testDependencies.mockitoKotlin
-    implementation testDependencies.assertJ
-    implementation testDependencies.kotlinCoroutines
-    implementation testDependencies.robolectric
-    implementation testDependencies.coreTesting
-    implementation testDependencies.navigation
-    implementation testDependencies.fragment
-    implementation testDependencies.coreKtx
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.espressoCore
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.kotlinCoroutines
+    testImplementation testDependencies.robolectric
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.navigation
+    debugImplementation testDependencies.fragment
+    testImplementation testDependencies.coreKtx
 
 }
