@@ -23,7 +23,8 @@ ext {
             fastAdapterBinding              : "com.mikepenz:fastadapter-extensions-binding:$fast_adapter_version",
             fastAdapterDiffUtil             : "com.mikepenz:fastadapter-extensions-diff:$fast_adapter_version",
             constraintLayout                : 'androidx.constraintlayout:constraintlayout:2.1.2',
-            fragment                        : 'androidx.fragment:fragment-ktx:1.4.1'
+            fragment                        : 'androidx.fragment:fragment-ktx:1.4.1',
+            speedDial                       : "com.leinardi.android:speed-dial:3.1.1"
     ]
 
     kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"

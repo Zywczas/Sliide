@@ -8,6 +8,5 @@
     <fragment
         android:id="@+id/usersListFragment"
         android:name="com.zywczas.sliide.fragments.userslist.presentation.UsersListFragment"
-        android:label="@string/users_title"
         tools:layout="@layout/fragment_users_list" />
 </navigation>

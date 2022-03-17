@@ -10,10 +10,10 @@ import javax.inject.Qualifier
 class DispatchersModule {
 
     @Provides
-    @DispatchersIO
-    fun provideDispatchersIO() : CoroutineDispatcher = Dispatchers.IO
+    @DispatcherIO
+    fun provideDispatcherIO() : CoroutineDispatcher = Dispatchers.IO
 
     @Qualifier
-    annotation class DispatchersIO
+    annotation class DispatcherIO
 
 }
