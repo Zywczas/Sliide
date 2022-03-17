@@ -27,7 +27,20 @@ class UsersListViewModel @Inject constructor(
                 User("Michal", "p4@o2.pl"),
                 User("Piotr", "p1552.pl"),
                 User("Michal", "p662.pl"),
+                User("Piotr", "p1@o2.pl"),
+                User("Michal", "p2@o2.pl"),
+                User("Piotr", "p3@o2.pl"),
+                User("Michal", "p4@o2.pl"),
+                User("Piotr", "p1552.pl"),
+                User("Michal", "p662.pl"),
+                User("Piotr", "p1@o2.pl"),
+                User("Michal", "p2@o2.pl"),
+                User("Piotr", "p3@o2.pl"),
+                User("Michal", "p4@o2.pl"),
+                User("Piotr", "p1552.pl"),
+                User("Michal", "p662.pl"),
             )
+            _usersList.postValue(list)
             showProgressBar(false)
         }
     }

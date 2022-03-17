@@ -1,14 +1,14 @@
 package com.zywczas.sliide.fragments.userslist.presentation
 
-import android.content.ClipData
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
@@ -37,30 +37,31 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUsers()
-        binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            vm = viewModel
-            usersAdapterXML = userFastAdapter
-        }
-        binding.usersList.addVerticalItemDivider()
+        binding.usersList.setup()
         setupObservers()
         setupOnClickListeners()
     }
 
+    private fun RecyclerView.setup() {
+        adapter = userFastAdapter
+        addVerticalItemDivider()
+    }
+
     private fun setupObservers() {
-        viewModel.message.observe(viewLifecycleOwner){ showSnackbar(it) }
+        viewModel.message.observe(viewLifecycleOwner) { showSnackbar(it) }
+        viewModel.isProgressBarVisible.observe(viewLifecycleOwner) { binding.progressBar.isVisible = it }
         viewModel.usersList.observe(viewLifecycleOwner) { FastAdapterDiffUtil.set(userItemAdapter, it.toGenericItems(), DiffUtilCallback()) }
     }
 
     private fun List<User>.toGenericItems(): List<UserItem> = map { UserItem(it) }
 
     private fun setupOnClickListeners(){
-        binding.speedDial.setOnClickListener {
-            //todo
-        }
         userFastAdapter.onLongClickListener = { v: View, adapter: IAdapter<UserItem>, item: UserItem, position: Int ->
             //todo
             true
+        }
+        binding.fab.setOnClickListener {
+            //todo
         }
     }
 
