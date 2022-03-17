@@ -41,7 +41,7 @@ ext {
             coreKtx                         : "androidx.test:core-ktx:1.4.0-beta02"
     ]
 
-    dagger_version = '2.36'
+    dagger_version = '2.40.1'
 
     diDependencies = [
             dagger                          : "com.google.dagger:dagger:$dagger_version",
