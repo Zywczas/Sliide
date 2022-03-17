@@ -57,7 +57,7 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
 
     private fun setupOnClickListeners(){
         userFastAdapter.onLongClickListener = { v: View, adapter: IAdapter<UserItem>, item: UserItem, position: Int ->
-            //todo
+            //todo...
             true
         }
         binding.fab.setOnClickListener {
