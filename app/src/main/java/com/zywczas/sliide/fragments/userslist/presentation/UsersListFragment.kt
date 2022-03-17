@@ -1,5 +1,6 @@
 package com.zywczas.sliide.fragments.userslist.presentation
 
+import android.content.ClipData
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mikepenz.fastadapter.FastAdapter
+import com.mikepenz.fastadapter.GenericItem
+import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
+import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
+import com.zywczas.sliide.adapters.DiffUtilCallback
 import com.zywczas.sliide.adapters.UserItem
 import com.zywczas.sliide.databinding.FragmentUsersListBinding
 import com.zywczas.sliide.di.factories.UniversalViewModelFactory
+import com.zywczas.sliide.extentions.addVerticalItemDivider
+import com.zywczas.sliide.extentions.showSnackbar
+import com.zywczas.sliide.fragments.userslist.domain.User
 import com.zywczas.sliide.utils.autoRelease
 import javax.inject.Inject
 
@@ -31,6 +39,28 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
         viewModel.getUsers()
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
+            vm = viewModel
+            usersAdapterXML = userFastAdapter
+        }
+        binding.usersList.addVerticalItemDivider()
+        setupObservers()
+        setupOnClickListeners()
+    }
+
+    private fun setupObservers() {
+        viewModel.message.observe(viewLifecycleOwner){ showSnackbar(it) }
+        viewModel.usersList.observe(viewLifecycleOwner) { FastAdapterDiffUtil.set(userItemAdapter, it.toGenericItems(), DiffUtilCallback()) }
+    }
+
+    private fun List<User>.toGenericItems(): List<UserItem> = map { UserItem(it) }
+
+    private fun setupOnClickListeners(){
+        binding.speedDial.setOnClickListener {
+            //todo
+        }
+        userFastAdapter.onLongClickListener = { v: View, adapter: IAdapter<UserItem>, item: UserItem, position: Int ->
+            //todo
+            true
         }
     }
 

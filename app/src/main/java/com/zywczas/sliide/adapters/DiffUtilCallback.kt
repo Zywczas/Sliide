@@ -3,7 +3,7 @@ package com.zywczas.sliide.adapters
 import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.diff.DiffCallback
 
-class DiffUtilCallback : DiffCallback<GenericItem> {
+class DiffUtilCallback<GenericItem> : DiffCallback<GenericItem> {
 
     override fun areItemsTheSame(oldItem: GenericItem, newItem: GenericItem): Boolean =
         when {
@@ -17,6 +17,6 @@ class DiffUtilCallback : DiffCallback<GenericItem> {
             else -> false
         }
 
-    override fun getChangePayload(oldItem: GenericItem, oldItemPosition: Int, newItem: GenericItem, newItemPosition: Int): Any = newItem
+    override fun getChangePayload(oldItem: GenericItem, oldItemPosition: Int, newItem: GenericItem, newItemPosition: Int): Any = newItem as com.mikepenz.fastadapter.GenericItem
 
 }
