@@ -1,15 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
+apply from: "${rootProject.projectDir}/config/gradle/commonLibraryConfig.gradle"
+
 android {
-    compileSdk 31
+    compileSdk project.compileSdkVersion
 
     defaultConfig {
         applicationId "com.zywczas.sliide"
-        minSdk 24
-        targetSdk 31
+        minSdk project.minSdkVersionApp
+        targetSdk project.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -22,6 +26,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        viewBinding true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -29,15 +36,54 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources true
+        }
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(path: ':networkstore')
+
+    implementation appDependencies.kotlin
+    implementation appDependencies.corektx
+    implementation appDependencies.legacySupport
+
+    implementation viewDependencies.appCompat
+    implementation viewDependencies.constraintLayout
+    implementation viewDependencies.material
+    implementation viewDependencies.activity
+    implementation viewDependencies.fragment
+    implementation viewDependencies.navigationFragment
+    implementation viewDependencies.navigationUi
+    implementation viewDependencies.fastAdapter
+    implementation viewDependencies.fastAdapterBinding
+    implementation viewDependencies.fastAdapterDiffUtil
+
+    implementation kotlinCoroutines
+
+    implementation diDependencies.dagger
+    implementation diDependencies.daggerAndroid
+    kapt diDependencies.daggerCompiler
+    kapt diDependencies.daggerCompilerAndroid
+
+    implementation  networkDependencies.okhttp
+
+    implementation lifeCycleDependencies.liveData
+
+    implementation testDependencies.junit
+    implementation testDependencies.espressoCore
+    implementation testDependencies.mockito
+    implementation testDependencies.mockitoKotlin
+    implementation testDependencies.assertJ
+    implementation testDependencies.kotlinCoroutines
+    implementation testDependencies.robolectric
+    implementation testDependencies.coreTesting
+    implementation testDependencies.navigation
+    implementation testDependencies.fragment
+    implementation testDependencies.coreKtx
+
 }

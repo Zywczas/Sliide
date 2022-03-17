@@ -1,0 +1,67 @@
+ext {
+
+    build_gradle_version = '7.0.4'
+    kotlin_version = '1.5.0'
+
+    appDependencies = [
+            kotlin                          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            corektx                         : "androidx.core:core-ktx:1.7.0",
+            legacySupport                   : 'androidx.legacy:legacy-support-v4:1.0.0'
+    ]
+
+    androidx_navigation_version = '2.4.1'
+    fast_adapter_version = '5.6.0'
+
+    viewDependencies = [
+            appCompat                       : "androidx.appcompat:appcompat:1.4.0",
+            activity                        : "androidx.activity:activity-ktx:1.4.0",
+            material                        : "com.google.android.material:material:1.4.0",
+            navigationFragment              : "androidx.navigation:navigation-fragment-ktx:$androidx_navigation_version",
+            navigationUi                    : "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version",
+            fastAdapter                     : "com.mikepenz:fastadapter:$fast_adapter_version",
+            fastAdapterBinding              : "com.mikepenz:fastadapter-extensions-binding:$fast_adapter_version",
+            fastAdapterDiffUtil             : "com.mikepenz:fastadapter-extensions-diff:$fast_adapter_version",
+            constraintLayout                : 'androidx.constraintlayout:constraintlayout:2.1.2',
+            fragment                        : 'androidx.fragment:fragment-ktx:1.4.1'
+    ]
+
+    kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
+
+    testDependencies = [
+            junit                           : "junit:junit:4.13.2",
+            espressoCore                    : 'androidx.test.espresso:espresso-core:3.3.0',
+            mockito                         : "org.mockito:mockito-core:3.7.7",
+            mockitoKotlin                   : "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
+            assertJ                         : "org.assertj:assertj-core:3.18.1",
+            kotlinCoroutines                : "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0",
+            robolectric                     : "org.robolectric:robolectric:4.6",
+            coreTesting                     : "android.arch.core:core-testing:1.1.1",
+            navigation                      : "androidx.navigation:navigation-testing:2.4.1",
+            fragment                        : "androidx.fragment:fragment-testing:1.4.1",
+            coreKtx                         : "androidx.test:core-ktx:1.4.0-beta02"
+    ]
+
+    dagger_version = '2.36'
+
+    diDependencies = [
+            dagger                          : "com.google.dagger:dagger:$dagger_version",
+            daggerCompiler                  : "com.google.dagger:dagger-compiler:$dagger_version",
+            daggerAndroid                   : "com.google.dagger:dagger-android:$dagger_version",
+            daggerCompilerAndroid           : "com.google.dagger:dagger-android-processor:$dagger_version"
+    ]
+
+    retrofit_version = '2.9.0'
+    ok_http_version = '4.9.1'
+
+    networkDependencies = [
+            retrofit                        : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            gsonConverter                   : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            okhttp                          : "com.squareup.okhttp3:okhttp:$ok_http_version",
+            okhttpLoggingInterceptor        : "com.squareup.okhttp3:logging-interceptor:$ok_http_version"
+    ]
+
+    lifeCycleDependencies = [
+            liveData                        : "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+    ]
+
+}
