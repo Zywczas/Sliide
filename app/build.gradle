@@ -50,6 +50,7 @@ dependencies {
 
     implementation appDependencies.kotlin
     implementation appDependencies.corektx
+    implementation appDependencies.jodatime
     implementation appDependencies.legacySupport
 
     implementation viewDependencies.appCompat

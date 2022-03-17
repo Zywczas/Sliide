@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="padding_minimum">8dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+
+    <dimen name="one_space">2dp</dimen>
+
+    <dimen name="text_medium">16sp</dimen>
+
+</resources>
