@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.zywczas.sliide.R
 import com.zywczas.sliide.databinding.ItemUserBinding
+import com.zywczas.sliide.extentions.dayFormat
+import com.zywczas.sliide.fragments.userslist.domain.User
 
-class UserItem : AbstractBindingItem<ItemUserBinding>() {
+class UserItem(val user: User) : AbstractBindingItem<ItemUserBinding>() {
 
     override val type: Int = R.id.userItem
 
@@ -15,10 +17,9 @@ class UserItem : AbstractBindingItem<ItemUserBinding>() {
 
     override fun bindView(binding: ItemUserBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
-        //todo finish
-        binding.name.text = "smt"
-        binding.email.text = "email"
-        binding.dateCreated.text = "date"
+        binding.name.text = user.name
+        binding.email.text = user.email
+        binding.dateCreated.text = user.dateCreated.dayFormat()
     }
 
 }
