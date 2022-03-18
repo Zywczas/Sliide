@@ -27,15 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <!--todo add theme - color, rounded corners...-->
-<!--        todo not showing progress-->
+
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progressBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/linear_progress_bar_horizontal_margin"
-            android:layout_marginTop="@dimen/padding_minimum"
-            android:layout_marginEnd="@dimen/linear_progress_bar_horizontal_margin"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

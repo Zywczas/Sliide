@@ -11,5 +11,6 @@
         <item name="toolbarStyle">@style/Widget.App.MyToolbar</item>
         <item name="textInputStyle">@style/Widget.App.MyTextInputLayout</item>
         <item name="snackbarStyle">@style/Widget.App.MySnackBar</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.App.MyLinearProgressIndicator</item>
     </style>
 </resources>
