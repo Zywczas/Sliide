@@ -65,9 +65,7 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
             showDeleteUserDialog(item.user)
             true
         }
-        binding.fab.setOnClickListener {
-            //todo
-        }
+        binding.fab.setOnClickListener { showAddUserDialog() }
     }
 
     private fun showDeleteUserDialog(user: User) {
@@ -75,6 +73,10 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
         DeleteUserDialog()
             .apply { arguments = bundle }
             .show(childFragmentManager, DeleteUserDialog::class.simpleName)
+    }
+
+    private fun showAddUserDialog() {
+
     }
 
 }
