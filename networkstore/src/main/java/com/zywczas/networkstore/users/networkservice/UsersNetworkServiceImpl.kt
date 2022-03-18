@@ -5,7 +5,6 @@ import com.zywczas.networkstore.R
 import com.zywczas.networkstore.users.models.UserNetwork
 import com.zywczas.networkstore.users.retrofitapi.UsersRetrofitApi
 import com.zywczas.networkstore.utils.Resource
-import com.zywczas.networkstore.utils.getBearer
 import javax.inject.Inject
 
 internal class UsersNetworkServiceImpl @Inject constructor(
@@ -13,11 +12,17 @@ internal class UsersNetworkServiceImpl @Inject constructor(
 ) : UsersNetworkService {
 
     override suspend fun getUsersLastPage(): Resource<List<UserNetwork>> =
-        try { //todo add logic for getting last page
-            val response = usersApi.getUsers(page = 1)
-            if (response.code() == 200) {
-                val users = response.body()?.users ?: emptyList()
-                Resource.Success(users)
+        try {
+            val firstResponse = usersApi.getUsers(page = 1)
+            if (firstResponse.code() == 200) {
+                val lastPage = firstResponse.body()?.meta?.pagination?.pages ?: 0
+                val lastPageResponse = usersApi.getUsers(page = lastPage)
+                if (lastPageResponse.code() == 200) {
+                    val users = lastPageResponse.body()?.users ?: emptyList()
+                    Resource.Success(users)
+                } else {
+                    Resource.Error(R.string.cannot_download_users)
+                }
             } else {
                 Resource.Error(R.string.cannot_download_users)
             }
