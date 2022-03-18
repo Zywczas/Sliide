@@ -7,7 +7,7 @@ class DiffUtilCallback<GenericItem> : DiffCallback<GenericItem> {
 
     override fun areItemsTheSame(oldItem: GenericItem, newItem: GenericItem): Boolean =
         when {
-            oldItem is UserItem && newItem is UserItem -> oldItem.user.email == newItem.user.email //todo if I have id then use id
+            oldItem is UserItem && newItem is UserItem -> oldItem.user.id == newItem.user.id
             else -> false
         }
 

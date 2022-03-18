@@ -1,5 +1,6 @@
 package com.zywczas.networkstore.di.modules
 
+import com.zywczas.networkstore.users.retrofitapi.UsersRetrofitApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -12,8 +13,7 @@ import javax.inject.Singleton
 @Module
 class RetrofitModule {
 
-    //todo add base url
-    private val goRestBaseUrl = "https://..."
+    private val goRestBaseUrl = "https://gorest.co.in/public/v2/"
 
     @Provides
     @Singleton
@@ -30,5 +30,8 @@ class RetrofitModule {
         .baseUrl(goRestBaseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    @Provides
+    internal fun provideUsersRetrofitApi(retrofit: Retrofit): UsersRetrofitApi = retrofit.create(UsersRetrofitApi::class.java)
 
 }
