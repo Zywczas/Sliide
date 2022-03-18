@@ -5,7 +5,7 @@ import com.zywczas.networkstore.utils.Resource
 interface UsersListRepository {
 
     suspend fun getUsersLastPage(): Resource<List<User>>
-    suspend fun deleteUser(id: Long): Int
-    suspend fun addUser(name: String, email: String): Int
+    suspend fun deleteUser(id: Long): Resource<Int>
+    suspend fun addUser(name: String, email: String): Resource<Int>
 
 }

@@ -3,7 +3,6 @@ package com.zywczas.sliide.fragments.userslist.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.zywczas.common.extentions.logD
 import com.zywczas.networkstore.utils.Resource
 import com.zywczas.sliide.di.modules.DispatchersModule.DispatcherIO
 import com.zywczas.sliide.fragments.BaseViewModel
@@ -28,7 +27,7 @@ class UsersListViewModel @Inject constructor(
             if (resource is Resource.Success) {
                 _usersList.postValue(resource.data ?: emptyList())
             } else {
-                postMessage(resource.message)
+                postMessage(resource.errorMessage)
             }
             showProgressBar(false)
         }
@@ -36,8 +35,12 @@ class UsersListViewModel @Inject constructor(
 
     fun deleteUser(id: Long) {
         viewModelScope.launch(dispatcherIO) {
-            //todo
-            logD("deleting user $id")
+            showProgressBar(true)
+            when (val resource = repo.deleteUser(id)) {
+                is Resource.Success -> resource.data?.let { postMessage(it) }
+                is Resource.Error -> postMessage(resource.errorMessage)
+            }
+            getUsers()
         }
     }
 

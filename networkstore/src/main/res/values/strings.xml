@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cannot_download_users">Cannot download users. Try again.</string>
+    <string name="cannot_delete_user">Cannot delete the user. Try again.</string>
+    <string name="deleted_user">User deleted</string>
 </resources>

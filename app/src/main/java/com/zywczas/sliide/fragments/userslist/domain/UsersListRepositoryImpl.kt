@@ -11,11 +11,11 @@ class UsersListRepositoryImpl @Inject constructor(
 
     override suspend fun getUsersLastPage(): Resource<List<User>> {
         val networkResource = usersService.getUsersLastPage()
-        return if (networkResource is Resource.Success) {
+        return if (networkResource is Resource.Success) { //todo change to when
             val resource = networkResource.data?.map { it.toDomain() } ?: emptyList()
             Resource.Success(resource)
         } else {
-            Resource.Error(networkResource.message)
+            Resource.Error(networkResource.errorMessage)
         }
     }
 
@@ -24,5 +24,9 @@ class UsersListRepositoryImpl @Inject constructor(
         name = name,
         email = email
     )
+
+    override suspend fun deleteUser(id: Long): Resource<Int> = usersService.deleteUser(id)
+
+    override suspend fun addUser(name: String, email: String): Resource<Int> = usersService.addUser(name, email)
 
 }

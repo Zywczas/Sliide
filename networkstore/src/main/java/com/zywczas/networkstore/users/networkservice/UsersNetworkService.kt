@@ -6,5 +6,7 @@ import com.zywczas.networkstore.utils.Resource
 interface UsersNetworkService {
 
     suspend fun getUsersLastPage(): Resource<List<UserNetwork>>
+    suspend fun deleteUser(id: Long): Resource<Int>
+    suspend fun addUser(name: String, email: String): Resource<Int>
 
 }
