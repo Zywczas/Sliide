@@ -46,7 +46,12 @@ class UsersListViewModel @Inject constructor(
 
     fun addUser(name: String, email: String) {
         viewModelScope.launch(dispatcherIO) {
-            //todo
+            showProgressBar(true)
+            when (val resource = repo.createUser(name, email)) {
+                is Resource.Success -> resource.data?.let { postMessage(it) }
+                is Resource.Error -> postMessage(resource.errorMessage)
+            }
+            getUsers()
         }
     }
 

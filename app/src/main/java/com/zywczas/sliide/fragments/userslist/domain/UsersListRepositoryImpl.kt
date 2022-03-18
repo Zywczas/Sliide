@@ -27,6 +27,6 @@ class UsersListRepositoryImpl @Inject constructor(
 
     override suspend fun deleteUser(id: Long): Resource<Int> = usersService.deleteUser(id)
 
-    override suspend fun addUser(name: String, email: String): Resource<Int> = usersService.addUser(name, email)
+    override suspend fun createUser(name: String, email: String): Resource<Int> = usersService.createUser(name, email)
 
 }

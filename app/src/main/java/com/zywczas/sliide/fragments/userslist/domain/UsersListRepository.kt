@@ -6,6 +6,6 @@ interface UsersListRepository {
 
     suspend fun getUsersLastPage(): Resource<List<User>>
     suspend fun deleteUser(id: Long): Resource<Int>
-    suspend fun addUser(name: String, email: String): Resource<Int>
+    suspend fun createUser(name: String, email: String): Resource<Int>
 
 }

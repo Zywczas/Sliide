@@ -3,4 +3,6 @@
     <string name="cannot_download_users">Cannot download users. Try again.</string>
     <string name="cannot_delete_user">Cannot delete the user. Try again.</string>
     <string name="deleted_user">User deleted</string>
+    <string name="cannot_add_user">Cannot add the user. Try again.</string>
+    <string name="added_user">User added</string>
 </resources>

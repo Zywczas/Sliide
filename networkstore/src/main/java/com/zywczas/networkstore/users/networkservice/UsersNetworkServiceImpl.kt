@@ -16,7 +16,6 @@ internal class UsersNetworkServiceImpl @Inject constructor(
         try { //todo add logic for getting last page
             val response = usersApi.getUsers(page = 1)
             if (response.code() == 200) {
-                logD(UsersNetworkServiceImpl::class, response.body()?.meta?.pagination?.pages.toString()) //todo remove
                 val users = response.body()?.users ?: emptyList()
                 Resource.Success(users)
             } else {
@@ -29,7 +28,7 @@ internal class UsersNetworkServiceImpl @Inject constructor(
 
     override suspend fun deleteUser(id: Long): Resource<Int> =
         try {
-            val response = usersApi.deleteUser(bearer = getBearer(), userId = id)
+            val response = usersApi.deleteUser(userId = id)
             if (response.code() == 204) {
                 Resource.Success(R.string.deleted_user)
             } else {
@@ -40,8 +39,17 @@ internal class UsersNetworkServiceImpl @Inject constructor(
             Resource.Error(R.string.cannot_delete_user)
         }
 
-    override suspend fun addUser(name: String, email: String): Resource<Int> {
-        return Resource.Success(1)
-    }
+    override suspend fun createUser(name: String, email: String): Resource<Int> =
+        try {
+            val response = usersApi.createUser(name = name, email = email)
+            if (response.code() == 201) {
+                Resource.Success(R.string.added_user)
+            } else {
+                Resource.Error(R.string.cannot_add_user)
+            }
+        } catch (e: Exception) {
+            logD(UsersNetworkServiceImpl::class, e)
+            Resource.Error(R.string.cannot_add_user)
+        }
 
 }
