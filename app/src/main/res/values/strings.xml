@@ -4,6 +4,7 @@
     <string name="created_on">Created on</string>
     <string name="colon">:</string>
     <string name="delete_user">Delete user</string>
+    <string name="are_you_sure_delete_user">Are you sure you want to remove user %1$s?</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
 </resources>

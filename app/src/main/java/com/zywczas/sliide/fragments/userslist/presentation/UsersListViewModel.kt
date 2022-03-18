@@ -3,6 +3,7 @@ package com.zywczas.sliide.fragments.userslist.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.zywczas.common.extentions.logD
 import com.zywczas.networkstore.utils.Resource
 import com.zywczas.sliide.di.modules.DispatchersModule.DispatcherIO
 import com.zywczas.sliide.fragments.BaseViewModel
@@ -30,6 +31,13 @@ class UsersListViewModel @Inject constructor(
                 postMessage(resource.message)
             }
             showProgressBar(false)
+        }
+    }
+
+    fun deleteUser(id: Long) {
+        viewModelScope.launch(dispatcherIO) {
+            //todo
+            logD("deleting user $id")
         }
     }
 

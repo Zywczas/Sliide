@@ -25,6 +25,10 @@ import javax.inject.Inject
 
 class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModelFactory) : Fragment() {
 
+    companion object {
+        const val KEY_USER = "KEY_USER"
+    }
+
     private val viewModel: UsersListViewModel by viewModels { viewModelFactory }
     private var binding: FragmentUsersListBinding by autoRelease()
     private val userItemAdapter by lazy { ItemAdapter<UserItem>() }
@@ -58,12 +62,19 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
 
     private fun setupOnClickListeners(){
         userFastAdapter.onLongClickListener = { _, _, item: UserItem, _ ->
-            logD(item.user.name)
+            showDeleteUserDialog(item.user)
             true
         }
         binding.fab.setOnClickListener {
             //todo
         }
+    }
+
+    private fun showDeleteUserDialog(user: User) {
+        val bundle = Bundle().apply { putParcelable(KEY_USER, user) }
+        DeleteUserDialog()
+            .apply { arguments = bundle }
+            .show(childFragmentManager, DeleteUserDialog::class.simpleName)
     }
 
 }
