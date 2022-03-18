@@ -41,4 +41,10 @@ class UsersListViewModel @Inject constructor(
         }
     }
 
+    fun addUser(name: String, email: String) {
+        viewModelScope.launch(dispatcherIO) {
+            //todo
+        }
+    }
+
 }

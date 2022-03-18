@@ -76,7 +76,7 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
     }
 
     private fun showAddUserDialog() {
-
+        AddUserDialog().show(childFragmentManager, AddUserDialog::class.simpleName)
     }
 
 }
