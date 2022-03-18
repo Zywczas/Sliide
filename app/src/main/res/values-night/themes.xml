@@ -9,5 +9,6 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="android:textColor">@color/white</item>
         <item name="toolbarStyle">@style/Widget.App.MyToolbar</item>
+        <item name="textInputStyle">@style/Widget.App.MyTextInputLayout</item>
     </style>
 </resources>

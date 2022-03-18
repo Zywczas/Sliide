@@ -4,4 +4,6 @@
         <item name="titleTextColor">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
     </style>
+
+    <style name="Widget.App.MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
 </resources>
