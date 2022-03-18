@@ -6,4 +6,9 @@
     </style>
 
     <style name="Widget.App.MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+    <style name="Widget.App.MySnackBar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+    </style>
+
 </resources>
