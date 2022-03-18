@@ -13,4 +13,6 @@
     <dimen name="dialog_title_width">230dp</dimen>
     <dimen name="dialog_edit_text_width">200dp</dimen>
 
+    <dimen name="item_divider_height">1dp</dimen>
+
 </resources>

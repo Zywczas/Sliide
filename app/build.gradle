@@ -74,8 +74,6 @@ dependencies {
 
     implementation  networkDependencies.retrofit
 
-    implementation lifeCycleDependencies.liveData //todo remove
-
     testImplementation testDependencies.junit
     testImplementation testDependencies.espressoCore
     testImplementation testDependencies.mockito
