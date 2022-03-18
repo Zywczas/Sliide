@@ -20,7 +20,7 @@ class UsersListViewModel @Inject constructor(
     fun getUsers() {
         viewModelScope.launch(dispatcherIO){
             showProgressBar(true)
-            val list = listOf(
+            val users = listOf(
                 User("Piotr", "p1@o2.pl"),
                 User("Michal", "p2@o2.pl"),
                 User("Piotr", "p3@o2.pl"),
@@ -40,7 +40,7 @@ class UsersListViewModel @Inject constructor(
                 User("Piotr", "p1552.pl"),
                 User("Michal", "p662.pl"),
             )
-            _usersList.postValue(list)
+            _usersList.postValue(users)
             showProgressBar(false)
         }
     }

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.zywczas.sliide.R
 import com.zywczas.sliide.databinding.ItemUserBinding
-import com.zywczas.sliide.extentions.dayFormat
+import com.zywczas.sliide.extentions.dayAndTimeFormat
 import com.zywczas.sliide.fragments.userslist.domain.User
 
 class UserItem(val user: User) : AbstractBindingItem<ItemUserBinding>() {
@@ -19,7 +19,7 @@ class UserItem(val user: User) : AbstractBindingItem<ItemUserBinding>() {
         super.bindView(binding, payloads)
         binding.name.text = user.name
         binding.email.text = user.email
-        binding.dateCreated.text = user.dateCreated.dayFormat()
+        binding.dateCreated.text = user.dateCreated.dayAndTimeFormat()
     }
 
 }
