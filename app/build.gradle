@@ -71,9 +71,9 @@ dependencies {
     kapt diDependencies.daggerCompiler
     kapt diDependencies.daggerCompilerAndroid
 
-    implementation  networkDependencies.okhttp
+    implementation  networkDependencies.retrofit
 
-    implementation lifeCycleDependencies.liveData
+    implementation lifeCycleDependencies.liveData //todo remove
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.espressoCore

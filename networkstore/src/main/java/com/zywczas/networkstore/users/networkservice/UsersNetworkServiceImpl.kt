@@ -16,6 +16,7 @@ internal class UsersNetworkServiceImpl @Inject constructor(
         try { //todo add logic for getting last page
             val response = usersApi.getUsers(bearer = getBearer(), page = 1)
             if (response.code() == 200) {
+                logD(UsersNetworkServiceImpl::class, response.body()?.meta?.pagination?.pages.toString()) //todo remove
                 val users = response.body()?.users ?: emptyList()
                 Resource.Success(users)
             } else {

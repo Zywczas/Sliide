@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Module
 class RetrofitModule {
 
-    private val goRestBaseUrl = "https://gorest.co.in/public/v2/"
+    private val goRestBaseUrl = "https://gorest.co.in/public/v1/"
 
     @Provides
     @Singleton

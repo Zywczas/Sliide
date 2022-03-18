@@ -28,6 +28,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <!--todo add theme - color, rounded corners...-->
+<!--        todo not showing progress-->
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progressBar"
             android:layout_width="0dp"
