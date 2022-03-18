@@ -12,6 +12,7 @@ import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
+import com.zywczas.common.extentions.logD
 import com.zywczas.sliide.adapters.DiffUtilCallback
 import com.zywczas.sliide.adapters.UserItem
 import com.zywczas.sliide.databinding.FragmentUsersListBinding
@@ -56,8 +57,8 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
     private fun List<User>.toGenericItems(): List<UserItem> = map { UserItem(it) }
 
     private fun setupOnClickListeners(){
-        userFastAdapter.onLongClickListener = { v: View, adapter: IAdapter<UserItem>, item: UserItem, position: Int ->
-            //todo...
+        userFastAdapter.onLongClickListener = { _, _, item: UserItem, _ ->
+            logD(item.user.name)
             true
         }
         binding.fab.setOnClickListener {

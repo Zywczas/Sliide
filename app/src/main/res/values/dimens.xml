@@ -8,6 +8,8 @@
 
     <dimen name="text_medium">16sp</dimen>
 
-    <dimen name="linearProgressBarHorizontalMargin">16dp</dimen>
+    <dimen name="linear_progress_bar_horizontal_margin">16dp</dimen>
+
+    <dimen name="dialog_title_width">230dp</dimen>
 
 </resources>

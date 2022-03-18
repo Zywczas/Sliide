@@ -3,4 +3,7 @@
     <string name="users_title">Users</string>
     <string name="created_on">Created on</string>
     <string name="colon">:</string>
+    <string name="delete_user">Delete user</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 </resources>
