@@ -36,22 +36,8 @@ android {
 
 dependencies {
 
-    implementation project(path: ':common')
-
     implementation appDependencies.kotlin
     implementation appDependencies.corektx
     implementation appDependencies.jodatime
-
-    implementation kotlinCoroutines
-
-    implementation diDependencies.dagger
-    implementation diDependencies.daggerAndroid
-    kapt diDependencies.daggerCompiler
-    kapt diDependencies.daggerCompilerAndroid
-
-    implementation  networkDependencies.retrofit
-    implementation  networkDependencies.gsonConverter
-    implementation  networkDependencies.okhttp
-    implementation  networkDependencies.okhttpLoggingInterceptor
 
 }

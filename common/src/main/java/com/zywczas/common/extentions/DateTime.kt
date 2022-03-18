@@ -1,4 +1,4 @@
-package com.zywczas.sliide.extentions
+package com.zywczas.common.extentions
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
