@@ -10,3 +10,4 @@ rootProject.name = "Sliide"
 include ':app'
 include ':networkstore'
 include ':common'
+include ':testcommon'

@@ -1,4 +1,4 @@
-package com.zywczas.sliide.mockeddata
+package com.zywczas.testcommon.mockeddata
 
 import com.zywczas.sliide.fragments.userslist.domain.User
 import org.joda.time.DateTime

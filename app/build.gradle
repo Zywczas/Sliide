@@ -48,6 +48,7 @@ dependencies {
 
     implementation project(path: ':networkstore')
     implementation project(path: ':common')
+    testImplementation project(path: ':testcommon')
 
     implementation appDependencies.kotlin
     implementation appDependencies.corektx

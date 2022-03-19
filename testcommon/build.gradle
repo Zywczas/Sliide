@@ -36,30 +36,19 @@ android {
 
 dependencies {
 
-    implementation project(path: ':common')
-    testImplementation project(path: ':testcommon')
+    implementation project(path: ':app')
+    implementation project(path: ':networkstore')
 
     implementation appDependencies.kotlin
     implementation appDependencies.corektx
+    implementation appDependencies.jodatime
 
-    implementation kotlinCoroutines
-
-    implementation diDependencies.dagger
-    implementation diDependencies.daggerAndroid
-    kapt diDependencies.daggerCompiler
-    kapt diDependencies.daggerCompilerAndroid
-
-    implementation  networkDependencies.retrofit
-    implementation  networkDependencies.gsonConverter
-    implementation  networkDependencies.okhttp
-    implementation  networkDependencies.okhttpLoggingInterceptor
-
-    testImplementation testDependencies.junit
-    testImplementation testDependencies.mockito
-    testImplementation testDependencies.mockitoKotlin
-    testImplementation testDependencies.assertJ
-    testImplementation testDependencies.kotlinCoroutines
-    testImplementation testDependencies.coreTesting
-    testImplementation testDependencies.coreKtx
+    implementation testDependencies.junit
+    implementation testDependencies.mockito
+    implementation testDependencies.mockitoKotlin
+    implementation testDependencies.assertJ
+    implementation testDependencies.kotlinCoroutines
+    implementation testDependencies.coreTesting
+    implementation testDependencies.coreKtx
 
 }

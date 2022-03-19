@@ -8,8 +8,8 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.zywczas.networkstore.utils.Resource
 import com.zywczas.sliide.R
 import com.zywczas.sliide.fragments.userslist.domain.UsersListRepository
-import com.zywczas.sliide.mockeddata.UserMocks
-import com.zywczas.sliide.rules.TestCoroutineRule
+import com.zywczas.testcommon.mockeddata.UserMocks
+import com.zywczas.testcommon.rules.TestCoroutineRule
 import com.zywczas.sliide.utils.LiveDataTestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.assertj.core.api.Assertions.assertThat

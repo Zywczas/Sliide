@@ -5,9 +5,9 @@ import com.zywczas.common.utils.DateTimeProvider
 import com.zywczas.networkstore.users.networkservice.UsersNetworkService
 import com.zywczas.networkstore.utils.Resource
 import com.zywczas.sliide.R
-import com.zywczas.sliide.mockeddata.UserMocks
-import com.zywczas.sliide.mockeddata.UserNetworkMocks
-import com.zywczas.sliide.rules.TestCoroutineRule
+import com.zywczas.testcommon.mockeddata.UserMocks
+import com.zywczas.testcommon.mockeddata.UserNetworkMocks
+import com.zywczas.testcommon.rules.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.assertj.core.api.Assertions.assertThat
 import org.joda.time.DateTime

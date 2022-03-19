@@ -1,4 +1,4 @@
-package com.zywczas.sliide.rules
+package com.zywczas.testcommon.rules
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
