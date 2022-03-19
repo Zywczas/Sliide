@@ -158,3 +158,4 @@ fabric.properties
 /.idea/sonarlint
 
 google-services.json
+networkstore/src/main/java/com/zywczas/networkstore/utils/Constants.kt
