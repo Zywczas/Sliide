@@ -44,11 +44,6 @@ dependencies {
     implementation appDependencies.jodatime
 
     implementation testDependencies.junit
-    implementation testDependencies.mockito
-    implementation testDependencies.mockitoKotlin
-    implementation testDependencies.assertJ
     implementation testDependencies.kotlinCoroutines
-    implementation testDependencies.coreTesting
-    implementation testDependencies.coreKtx
 
 }
