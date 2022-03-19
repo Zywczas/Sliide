@@ -72,4 +72,34 @@ class UsersListFragmentTest {
         uiRobot.isSecondMemberDataDisplayed()
     }
 
+    @Test
+    fun clickCreateUser_shouldGetDialog() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+        uiRobot.clickOnCreateUser()
+
+        uiRobot.isCreateUserDialogDisplayed()
+    }
+
+    @Test
+    fun addUser_shouldGetSnackbar() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+
+        //todo
+    }
+
+    @Test
+    fun longTapOnUser_shouldGetDialog() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+        uiRobot.longTapOnUser(0)
+
+        uiRobot.isConfirmationDialogDisplayed()
+    }
+
+    @Test
+    fun deleteUser_shouldGetSnackbar() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+
+        //todo
+    }
+
 }
