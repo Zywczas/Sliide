@@ -35,7 +35,7 @@ ext {
             mockitoKotlin                   : "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
             assertJ                         : "org.assertj:assertj-core:3.18.1",
             kotlinCoroutines                : "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0",
-            robolectric                     : "org.robolectric:robolectric:4.6",
+            robolectric                     : "org.robolectric:robolectric:4.7.3",
             coreTesting                     : "android.arch.core:core-testing:1.1.1",
             navigation                      : "androidx.navigation:navigation-testing:2.4.1",
             fragment                        : "androidx.fragment:fragment-testing:1.4.1",
