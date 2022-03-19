@@ -1,6 +1,6 @@
 package com.zywczas.networkstore.users.networkservice
 
-import com.zywczas.common.extentions.logD
+import com.zywczas.common.utils.Logger
 import com.zywczas.networkstore.R
 import com.zywczas.networkstore.users.models.UserNetwork
 import com.zywczas.networkstore.users.retrofitapi.UsersRetrofitApi
@@ -8,7 +8,8 @@ import com.zywczas.networkstore.utils.Resource
 import javax.inject.Inject
 
 internal class UsersNetworkServiceImpl @Inject constructor(
-    private val usersApi: UsersRetrofitApi
+    private val usersApi: UsersRetrofitApi,
+    private val logger: Logger
 ) : UsersNetworkService {
 
     override suspend fun getUsersLastPage(): Resource<List<UserNetwork>> =
@@ -27,7 +28,7 @@ internal class UsersNetworkServiceImpl @Inject constructor(
                 Resource.Error(R.string.cannot_download_users)
             }
         } catch (e: Exception) {
-            logD(UsersNetworkServiceImpl::class, e)
+            logger.logD(UsersNetworkServiceImpl::class, e)
             Resource.Error(R.string.cannot_download_users)
         }
 
@@ -40,7 +41,7 @@ internal class UsersNetworkServiceImpl @Inject constructor(
                 Resource.Error(R.string.cannot_delete_user)
             }
         } catch (e: Exception) {
-            logD(UsersNetworkServiceImpl::class, e)
+            logger.logD(UsersNetworkServiceImpl::class, e)
             Resource.Error(R.string.cannot_delete_user)
         }
 
@@ -53,7 +54,7 @@ internal class UsersNetworkServiceImpl @Inject constructor(
                 Resource.Error(R.string.cannot_create_user)
             }
         } catch (e: Exception) {
-            logD(UsersNetworkServiceImpl::class, e)
+            logger.logD(UsersNetworkServiceImpl::class, e)
             Resource.Error(R.string.cannot_create_user)
         }
 

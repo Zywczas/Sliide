@@ -7,17 +7,20 @@ import retrofit2.http.*
 
 internal interface UsersRetrofitApi {
 
+    @Throws(Exception::class)
     @GET("users")
     suspend fun getUsers(
         @Query("page") page: Int
     ): Response<UsersResponse>
 
+    @Throws(Exception::class)
     @DELETE("users/{userId}")
     suspend fun deleteUser(
         @Header("Authorization") bearer: String = getBearer(),
         @Path("userId") userId: Long
     ): Response<Unit>
 
+    @Throws(Exception::class)
     @POST("users")
     suspend fun createUser(
         @Header("Authorization") bearer: String = getBearer(),
