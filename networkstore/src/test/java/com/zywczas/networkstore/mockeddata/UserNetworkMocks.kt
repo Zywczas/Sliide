@@ -1,4 +1,4 @@
-package com.zywczas.sliide.mockeddata
+package com.zywczas.networkstore.mockeddata
 
 import com.zywczas.networkstore.users.models.UserNetwork
 //todo try to place both in common place, now I have 2 copies in 2 places

@@ -40,7 +40,6 @@ dependencies {
 
     implementation appDependencies.kotlin
     implementation appDependencies.corektx
-    implementation appDependencies.jodatime
 
     implementation kotlinCoroutines
 
@@ -53,5 +52,13 @@ dependencies {
     implementation  networkDependencies.gsonConverter
     implementation  networkDependencies.okhttp
     implementation  networkDependencies.okhttpLoggingInterceptor
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.kotlinCoroutines
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.coreKtx
 
 }
