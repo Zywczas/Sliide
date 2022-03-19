@@ -17,7 +17,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import java.math.BigDecimal
 
 @ExperimentalCoroutinesApi
 @RunWith(RobolectricTestRunner::class)
@@ -82,9 +81,13 @@ class UsersListFragmentTest {
 
     @Test
     fun addUser_shouldGetSnackbar() = coroutineTest.runBlockingTest {
-        launchUsersListFragment()
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.created_user))
 
-        //todo
+        launchUsersListFragment()
+        uiRobot.createUser("Sting", "sting@gmail.com")
+
+        verify(repository).createUser("Sting", "sting@gmail.com")
+        uiRobot.isSnackbarDisplayed(R.string.created_user)
     }
 
     @Test
@@ -97,9 +100,12 @@ class UsersListFragmentTest {
 
     @Test
     fun deleteUser_shouldGetSnackbar() = coroutineTest.runBlockingTest {
-        launchUsersListFragment()
+        whenever(repository.deleteUser(any())).thenReturn(Resource.Success(R.string.deleted_user))
 
-        //todo
+        launchUsersListFragment()
+        uiRobot.deleteUser(0)
+
+        uiRobot.isSnackbarDisplayed(R.string.deleted_user)
     }
 
 }

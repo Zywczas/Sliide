@@ -100,7 +100,20 @@ class UsersListFragmentRobot {
         onView(withId(R.id.cancel)).inRoot(isDialog()).check(matches(allOf(withText(R.string.cancel), isDisplayed())))
     }
 
-    private fun getString(@StringRes msg: Int, arg: String) =
-        ApplicationProvider.getApplicationContext<BaseApp>().applicationContext.getString(msg, arg)
+    private fun getString(@StringRes msg: Int, arg: String) = ApplicationProvider.getApplicationContext<BaseApp>().applicationContext.getString(msg, arg)
+
+    fun createUser(name: String, email: String) {
+        clickOnCreateUser()
+        onView(withId(R.id.name)).inRoot(isDialog()).perform(typeText(name))
+        onView(withId(R.id.email)).inRoot(isDialog()).perform(typeText(email))
+        onView(withId(R.id.confirm)).inRoot(isDialog()).perform(click())
+    }
+
+    fun isSnackbarDisplayed(@StringRes text: Int) = onView(allOf(withId(com.google.android.material.R.id.snackbar_text), withText(text))).check(matches(isDisplayed()))
+
+    fun deleteUser(position: Int) {
+        onView(withId(R.id.usersList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(position, longClick()))
+        onView(withId(R.id.confirm)).inRoot(isDialog()).perform(click())
+    }
 
 }
