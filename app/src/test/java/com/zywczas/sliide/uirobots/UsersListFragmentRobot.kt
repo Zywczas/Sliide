@@ -3,23 +3,19 @@ package com.zywczas.sliide.uirobots
 import androidx.annotation.StringRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
-import androidx.test.espresso.matcher.RootMatchers
-import androidx.test.espresso.matcher.RootMatchers.*
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.zywczas.sliide.BaseApp
 import com.zywczas.sliide.R
 import com.zywczas.sliide.utils.childAtRecyclerPosition
 import com.zywczas.sliide.utils.recyclerViewHasSize
-import org.hamcrest.Matchers
-import org.hamcrest.Matchers.*
+import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
 
 @Suppress("HasPlatformType")
 class UsersListFragmentRobot {
