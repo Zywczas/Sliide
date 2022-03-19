@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
-import com.zywczas.common.extentions.logD
 import com.zywczas.sliide.adapters.DiffUtilCallback
 import com.zywczas.sliide.adapters.UserItem
 import com.zywczas.sliide.databinding.FragmentUsersListBinding
@@ -76,7 +74,7 @@ class UsersListFragment @Inject constructor(viewModelFactory: UniversalViewModel
     }
 
     private fun showAddUserDialog() {
-        AddUserDialog().show(childFragmentManager, AddUserDialog::class.simpleName)
+        CreateUserDialog().show(childFragmentManager, CreateUserDialog::class.simpleName)
     }
 
 }

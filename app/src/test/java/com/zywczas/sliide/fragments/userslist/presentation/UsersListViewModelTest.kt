@@ -54,6 +54,7 @@ class UsersListViewModelTest {
         tested.getUsers()
         val actual = LiveDataTestUtil.getValue(tested.message)
 
+        verify(repository).getUsersLastPage()
         assertThat(actual).isEqualTo(expected)
     }
 
@@ -82,10 +83,51 @@ class UsersListViewModelTest {
         val expected = R.string.cannot_delete_user
         whenever(repository.deleteUser(any())).thenReturn(Resource.Error(R.string.cannot_delete_user))
 
-        tested.deleteUser(3L)
+        tested.deleteUser(4L)
         val actual = LiveDataTestUtil.getValue(tested.message)
 
         assertThat(actual).isEqualTo(expected)
+    }
+
+    @Test
+    fun deleteUser_shouldUpdateUsers() = coroutineTest.runBlockingTest {
+        whenever(repository.deleteUser(any())).thenReturn(Resource.Error(R.string.cannot_delete_user))
+
+        tested.deleteUser(5L)
+
+        verify(repository).getUsersLastPage()
+    }
+
+    @Test
+    fun addUser_shouldBeAdded() = coroutineTest.runBlockingTest {
+        val expected = R.string.added_user
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.added_user))
+
+        tested.createUser("myName", "myEmail")
+        val actual = LiveDataTestUtil.getValue(tested.message)
+
+        verify(repository).createUser("myName", "myEmail")
+        assertThat(actual).isEqualTo(expected)
+    }
+
+    @Test
+    fun addUser_shouldGetError() = coroutineTest.runBlockingTest {
+        val expected = R.string.cannot_add_user
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Error(R.string.cannot_add_user))
+
+        tested.createUser("myName", "myEmail")
+        val actual = LiveDataTestUtil.getValue(tested.message)
+
+        assertThat(actual).isEqualTo(expected)
+    }
+
+    @Test
+    fun addUser_shouldUpdateUsers() = coroutineTest.runBlockingTest {
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.added_user))
+
+        tested.createUser("myName", "myEmail")
+
+        verify(repository).getUsersLastPage()
     }
 
 }

@@ -44,7 +44,7 @@ class UsersListViewModel @Inject constructor(
         }
     }
 
-    fun addUser(name: String, email: String) {
+    fun createUser(name: String, email: String) {
         viewModelScope.launch(dispatcherIO) {
             showProgressBar(true)
             when (val resource = repo.createUser(name, email)) {
