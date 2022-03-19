@@ -52,6 +52,7 @@ class UsersNetworkServiceImplTest {
         val actual = tested.getUsersLastPage().errorMessage
 
         verify(usersApi).getUsers(page = 1)
+        verify(logger).logD(tag = eq(UsersNetworkServiceImpl::class), e = any())
         assertThat(actual).isEqualTo(expected)
     }
 
@@ -98,6 +99,7 @@ class UsersNetworkServiceImplTest {
 
         val actual = tested.deleteUser(2L).errorMessage
 
+        verify(logger).logD(tag = eq(UsersNetworkServiceImpl::class), e = any())
         assertThat(actual).isEqualTo(expected)
     }
 
@@ -135,6 +137,7 @@ class UsersNetworkServiceImplTest {
 
         val actual = tested.createUser("myName", "myEmail").errorMessage
 
+        verify(logger).logD(tag = eq(UsersNetworkServiceImpl::class), e = any())
         assertThat(actual).isEqualTo(expected)
     }
 
