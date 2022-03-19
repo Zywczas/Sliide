@@ -3,10 +3,7 @@ package com.zywczas.sliide.fragments.userslist.presentation
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.spy
-import com.nhaarman.mockitokotlin2.whenever
+import com.nhaarman.mockitokotlin2.*
 import com.zywczas.networkstore.utils.Resource
 import com.zywczas.sliide.R
 import com.zywczas.sliide.di.factories.UniversalViewModelFactory
@@ -20,14 +17,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
+import java.math.BigDecimal
 
 @ExperimentalCoroutinesApi
 @RunWith(RobolectricTestRunner::class)
-@Config(
-    // required by Espresso to access final members on androidx.loader.content.ModernAsyncTask
-    instrumentedPackages = ["androidx.loader.content"]
-)
 class UsersListFragmentTest {
 
     @get:Rule
@@ -61,6 +54,22 @@ class UsersListFragmentTest {
         launchUsersListFragment()
 
         uiRobot.isLayoutDisplayed()
+    }
+
+    @Test
+    fun startFragment_shouldGetToolbarTitle() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+
+        uiRobot.isToolbarTitle(R.string.users_title)
+    }
+
+    @Test
+    fun startFragment_shouldGetUsers() = coroutineTest.runBlockingTest {
+        launchUsersListFragment()
+
+        uiRobot.usersRecyclerHasItems(2)
+        uiRobot.isFirstMemberDataDisplayed()
+        uiRobot.isSecondMemberDataDisplayed()
     }
 
 }
