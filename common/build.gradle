@@ -40,4 +40,9 @@ dependencies {
     implementation appDependencies.corektx
     implementation appDependencies.jodatime
 
+    implementation diDependencies.dagger
+    implementation diDependencies.daggerAndroid
+    kapt diDependencies.daggerCompiler
+    kapt diDependencies.daggerCompilerAndroid
+
 }

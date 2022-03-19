@@ -100,8 +100,8 @@ class UsersListViewModelTest {
 
     @Test
     fun addUser_shouldBeAdded() = coroutineTest.runBlockingTest {
-        val expected = R.string.added_user
-        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.added_user))
+        val expected = R.string.created_user
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.created_user))
 
         tested.createUser("myName", "myEmail")
         val actual = LiveDataTestUtil.getValue(tested.message)
@@ -112,8 +112,8 @@ class UsersListViewModelTest {
 
     @Test
     fun addUser_shouldGetError() = coroutineTest.runBlockingTest {
-        val expected = R.string.cannot_add_user
-        whenever(repository.createUser(any(), any())).thenReturn(Resource.Error(R.string.cannot_add_user))
+        val expected = R.string.cannot_create_user
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Error(R.string.cannot_create_user))
 
         tested.createUser("myName", "myEmail")
         val actual = LiveDataTestUtil.getValue(tested.message)
@@ -123,7 +123,7 @@ class UsersListViewModelTest {
 
     @Test
     fun addUser_shouldUpdateUsers() = coroutineTest.runBlockingTest {
-        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.added_user))
+        whenever(repository.createUser(any(), any())).thenReturn(Resource.Success(R.string.created_user))
 
         tested.createUser("myName", "myEmail")
 

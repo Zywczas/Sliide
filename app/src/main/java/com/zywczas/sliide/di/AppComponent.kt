@@ -1,6 +1,7 @@
 package com.zywczas.sliide.di
 
 import android.app.Application
+import com.zywczas.common.di.modules.CommonBinderModule
 import com.zywczas.networkstore.di.modules.NetworkServiceModule
 import com.zywczas.networkstore.di.modules.RetrofitModule
 import com.zywczas.sliide.BaseApp
@@ -21,7 +22,8 @@ import javax.inject.Singleton
     FragmentFactoryModule::class,
     ViewModelFactoryModule::class,
     RetrofitModule::class,
-    NetworkServiceModule::class
+    NetworkServiceModule::class,
+    CommonBinderModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApp> {
 

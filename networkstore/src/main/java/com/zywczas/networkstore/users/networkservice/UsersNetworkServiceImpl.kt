@@ -48,13 +48,13 @@ internal class UsersNetworkServiceImpl @Inject constructor(
         try {
             val response = usersApi.createUser(name = name, email = email)
             if (response.code() == 201) {
-                Resource.Success(R.string.added_user)
+                Resource.Success(R.string.created_user)
             } else {
-                Resource.Error(R.string.cannot_add_user)
+                Resource.Error(R.string.cannot_create_user)
             }
         } catch (e: Exception) {
             logD(UsersNetworkServiceImpl::class, e)
-            Resource.Error(R.string.cannot_add_user)
+            Resource.Error(R.string.cannot_create_user)
         }
 
 }
