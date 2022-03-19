@@ -3,9 +3,9 @@ package com.zywczas.sliide.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
+import com.zywczas.common.extentions.dayAndTimeFormat
 import com.zywczas.sliide.R
 import com.zywczas.sliide.databinding.ItemUserBinding
-import com.zywczas.common.extentions.dayAndTimeFormat
 import com.zywczas.sliide.fragments.userslist.domain.User
 
 class UserItem(val user: User) : AbstractBindingItem<ItemUserBinding>() {

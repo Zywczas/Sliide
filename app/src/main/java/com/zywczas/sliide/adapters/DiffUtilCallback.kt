@@ -1,6 +1,5 @@
 package com.zywczas.sliide.adapters
 
-import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.diff.DiffCallback
 
 class DiffUtilCallback<GenericItem> : DiffCallback<GenericItem> {

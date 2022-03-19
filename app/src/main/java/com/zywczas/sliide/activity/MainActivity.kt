@@ -1,7 +1,7 @@
 package com.zywczas.sliide.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.zywczas.sliide.R
 import com.zywczas.sliide.di.factories.UniversalFragmentFactory
 import dagger.android.AndroidInjection
